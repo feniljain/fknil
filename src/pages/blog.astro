@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+import BasePageLayout from '../layouts/BasePageLayout.astro';
+
+const allBlogsNotDraft = await getCollection('blog', ({ data }) => !data.draft);
+
+const techBlogs = allBlogsNotDraft.filter((blog) => blog.data.tech);
+const nonTechBlogs = allBlogsNotDraft.filter((blog) => !blog.data.tech);
+
+console.log(techBlogs.length);
+console.log(nonTechBlogs.length);
+
+---
+
+<BasePageLayout>
+    <div class="blog-list-body">
+        <h2>Tech Blogs</h2>
+        <ul>
+        {techBlogs.map(blog => (
+            <li><a href={`/blog/${blog.data.slug}`}>{blog.data.slug}</a></li>
+        ))}
+        </ul>
+        <h2>Non Tech Blogs</h2>
+        <ul>
+        {nonTechBlogs.map(blog => (
+            <li><a href={`/blog/${blog.data.slug}`}>{blog.data.slug}</a></li>
+        ))}
+        </ul>
+    <div>
+</BasePageLayout>
+
+<style>
+    .blog-list-body {
+        text-align: start;
+        padding: 5%;
+    }
+</style>
