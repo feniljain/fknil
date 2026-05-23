@@ -4,15 +4,12 @@ import BasePageLayout from '../layouts/BasePageLayout.astro';
 
 const allBlogsNotDraft = await getCollection('blog', ({ data }) => !data.draft);
 
-// const posts = (await getCollection('blog')).sort(
-//   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-// );
-
 const techBlogs = allBlogsNotDraft.filter((blog) => blog.data.tech);
 const nonTechBlogs = allBlogsNotDraft.filter((blog) => !blog.data.tech);
 
-console.log(techBlogs.length);
-console.log(nonTechBlogs.length);
+const sortedTechBlogs = techBlogs.sort((a, b) => b.data.publishedOn.getTime() - a.data.publishedOn.getTime());
+
+const sortedNonTechBlogs = nonTechBlogs.sort((a, b) => b.data.publishedOn.getTime() - a.data.publishedOn.getTime());
 
 ---
 
@@ -20,13 +17,13 @@ console.log(nonTechBlogs.length);
     <div class="blog-list-body">
         <h2>Tech Blogs</h2>
         <ul>
-        {techBlogs.map(blog => (
+        {sortedTechBlogs.map(blog => (
             <li><a href={`/blog/${blog.data.slug}`}>{blog.data.slug}</a></li>
         ))}
         </ul>
         <h2>Non Tech Blogs</h2>
         <ul>
-        {nonTechBlogs.map(blog => (
+        {sortedNonTechBlogs.map(blog => (
             <li><a href={`/blog/${blog.data.slug}`}>{blog.data.slug}</a></li>
         ))}
         </ul>

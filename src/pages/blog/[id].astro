@@ -18,7 +18,9 @@ const { Content } = await render(blog);
 
 <BasePageLayoutWithOnlyHeader>
     <div class="main-body">
-        <h1>{blog.slug}</h1>
+        <div class="blog-title">{blog.data.title}</div>
+        <p class="blog-dates">Published on: {blog.data.publishedOn.toLocaleDateString()}</p>
+        <p class="blog-dates">Last edited on: {blog.data.lastEditedOn.toLocaleDateString()}</p>
         <Content />
     </div>
 </BasePageLayoutWithOnlyHeader>
@@ -29,5 +31,14 @@ const { Content } = await render(blog);
     width: 50%;
     font-size: 1rem;
     margin: 0 auto 2% auto;
+}
+
+.blog-title {
+    text-align: center;
+    font-size: 3rem;
+}
+
+.blog-dates {
+    font-size: 1.3rem;
 }
 </style>

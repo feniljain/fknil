@@ -8,6 +8,11 @@ const blog = defineCollection({
     tech: z.boolean(),
     draft: z.boolean(),
     slug: z.string(),
+    title: z.string(),
+    // This would only work if dates are in ISO format
+    // in blog markdown files
+    publishedOn: z.coerce.date(),
+    lastEditedOn: z.coerce.date(),
   }),
 });
 
