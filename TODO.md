@@ -1,0 +1,20 @@
+## TODO:
+
+- [X] create starter astro project
+- [X] migrate all the in progress plan HTML/CSS to astro
+- [X] create about.html
+- [X] add frontmatter to all your blogs
+- [X] create blogs as a submodule
+- [X] use content collections to load all your blogs
+- [X] make a blog listing page
+- [X] render each markdown blog
+- [X] make apperance of each blog match rest of the website
+- [X] add title, publishedAt and lastEditedAt fields to blogs
+- [X] setup images
+- [X] make a 404 page
+- [X] add RSS feed
+- [X] add proper favicon icon
+- [X] add resume button in header
+- [X] setup cloudflare to use/build astro
+- [X] make all social links, rss feed and resume open in a new tab
+- [ ] buy a domain and host everything
