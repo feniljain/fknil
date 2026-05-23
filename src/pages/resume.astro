@@ -5,72 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fenil Jain - Resume</title>
     <style>
+        :root {
+            --bg: #fafafa;
+            --fg: #212121;
+            --muted: #5a5a5a;
+            --logo-backdrop: #1565c0;
+            --alt-bg: #e0e0e0;
+            --border: #d0d0d0;
+            --text-color: #212121;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #212121;
+                --fg: #dadada;
+                --muted: #a0a0a0;
+                --logo-backdrop: #42a5f5;
+                --alt-bg: #424242;
+                --border: #3a3a3a;
+                --text-color: #dadada;
+            }
+        }
+
         body {
             font-family: Arial, sans-serif;
             width: 290mm;
             height: 300mm;
             margin: auto;
-            /*
-            width: 210mm;
-            height: 297mm;
-            padding: 20px;
-            box-sizing: border-box;
-            */
+            background: var(--bg);
+            color: var(--text-color);
         }
+
         .section {
             padding: 0px 0px 10px 0px;
         }
-        h1, h2, h3 {
-            color: #333;
-        }
-        h2 {
-        }
+
         h3 {
             margin: 12px 0px 12px 0px;
         }
+
         .header {
             text-align: center;
         }
+
         .contact-info {
             text-align: center;
             margin: 0px;
-            /* margin-bottom: 10px; */
         }
-        .contact-info a {
-            text-decoration: none;
-            color: #0073b1;
-            margin: 0 10px;
-        }
+
+        /* a, a:visited { */
+        /*     text-decoration: none; */
+        /*     color: var(--logo-backdrop); */
+        /*     margin: 0 10px; */
+        /* } */
+
         .contact-info p {
             margin: 5px 10px 5px 10px;
         }
+
         ul {
             padding-left: 20px;
         }
+
         .section-title {
             border: solid;
             border-width: 2px 0px 2px 0px;
             padding: 15px 0px 15px 0px;
             margin: 0px;
         }
+
         .work-exp-company-tech {
             font-style: italic;
         }
+
         .info-header-section {
             border: solid;
             border-width: 1px 0px 2px 0px;
             margin: 0px;
         }
+
         ul {
             font-size: 15px;
         }
+
         @page {
             size: 21cm 29.7cm;
             margin: 30mm 45mm 30mm 45mm;
             /* change the margins as you want them to be. */
-        }
-        a:* {
-            color: #0000FF;
         }
     </style>
 </head>
