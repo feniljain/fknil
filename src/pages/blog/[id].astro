@@ -1,0 +1,19 @@
+---
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+    const allBlogsNotDraft = await getCollection('blog', ({ data }) => !data.draft);
+    return allBlogsNotDraft.map(blog => {
+        return {
+            params: { id: blog.id },
+            props: { blog },
+        };
+    });
+}
+
+const { blog } = Astro.props;
+const { Content } = await render(blog);
+---
+
+<h1>{blog.slug}</h1>
+<Content />
