@@ -14,12 +14,49 @@ import Footer from '../components/Footer.astro';
 	</head>
 	<body>
 	    <Header />
-        <slot />
+        <div class="main-body">
+            <slot />
+        </div>
 	    <Footer />
 	</body>
 </html>
 
 <style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: var(--bg);
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        min-height: 100vh;
+        box-sizing: border-box;
+    }
+
+    .main-body {
+        color: var(--text-color);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        box-sizing: border-box;
+        width: 100%;
+        height: 90%;
+
+        font-size: 1.5rem;
+        padding: 1%;
+    }
+</style>
+
+<style is:global>
     :root {
         --bg: #fafafa;
         --fg: #212121;
@@ -42,20 +79,11 @@ import Footer from '../components/Footer.astro';
         }
     }
 
-    html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        background: var(--bg);
+    a, a:visited {
+        color: var(--text-color);
     }
 
-    body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        min-height: 100vh;
-        box-sizing: border-box;
+    a:hover {
+        color: var(--logo-backdrop);
     }
 </style>
