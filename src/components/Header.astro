@@ -1,17 +1,27 @@
 <div class="navbar">
-    <div class="navbar-title">
-        <a href="/">Home</a>
+    <div class="navbar-title ">
+        <a class="navbar-btn" href="/">Home</a>
     </div>
     <div class="navbar-btns">
-        <a href="/blogs">Blogs</a>
-        <a href="/about">About</a>
-        <a href="/resume">Resume</a>
+        <a class="navbar-btn" href="/blogs">Blogs</a>
+        <a class="navbar-btn" href="/about">About</a>
+        <a class="navbar-btn" href="/resume" target="_blank">Resume</a>
     </div>
 </div>
 
 <style>
-    a, a:visited{
-        text-decoration: none;
+    /* Follow LVHA principles */
+    .navbar-btn:visited {
+        color: var(--text-color);
+    }
+
+    .navbar-btn:hover {
+        color: var(--logo-backdrop);
+        text-decoration: underline;
+    }
+
+    .navbar-btn {
+        color: var(--text-color);
     }
 
     .navbar {

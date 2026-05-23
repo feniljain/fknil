@@ -26,19 +26,29 @@ const { Content } = await render(blog);
 </BasePageLayoutWithOnlyHeader>
 
 <style>
-.main-body {
-    color: var(--text-color);
-    width: 50%;
-    font-size: 1rem;
-    margin: 0 auto 2% auto;
-}
+    .main-body {
+        color: var(--text-color);
+        width: 50%;
+        font-size: 1rem;
+        margin: 0 auto 2% auto;
+    }
 
-.blog-title {
-    text-align: center;
-    font-size: 3rem;
-}
+    .blog-title {
+        text-align: center;
+        font-size: 3rem;
+    }
 
-.blog-dates {
-    font-size: 1.3rem;
-}
+    .blog-dates {
+        font-size: 1.3rem;
+    }
+
+    /* Follow LVHA principles */
+    a, a:visited {
+        color: var(--logo-backdrop);
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
 </style>

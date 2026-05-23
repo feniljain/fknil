@@ -1,5 +1,9 @@
 # My personal website
 
+## Start point
+
+Actual start point of everything is BasePageLayoutWithOnlyHeader
+
 ## Commands
 
 All commands are run from the root of the project:

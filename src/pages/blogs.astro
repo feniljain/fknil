@@ -18,7 +18,7 @@ const sortedNonTechBlogs = nonTechBlogs.sort((a, b) => b.data.publishedOn.getTim
 <BasePageLayout>
     <div class="blog-list-body">
         <div>
-            <a href="/rss.xml">
+            <a href="/rss.xml" target="_blank">
                 RSS Feed:
                  <RssLogo  class="rss-logo"/>
             </a>
@@ -39,8 +39,14 @@ const sortedNonTechBlogs = nonTechBlogs.sort((a, b) => b.data.publishedOn.getTim
 </BasePageLayout>
 
 <style>
+    /* Follow LVHA principles */
     a, a:visited {
+        color: var(--logo-backdrop);
         text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
     }
 
     .blog-list-body {

@@ -10,17 +10,17 @@ import TwitterLogo from '@assets/svgs/twitter.svg';
         <div class="tagline">I make black boxes for programmers</div>
             <div class="socials">
                 <div class="social">
-                    <a href="https://github.com/feniljain" aria-label="Github">
+                    <a href="https://github.com/feniljain" aria-label="Github" target="_blank">
                         <GithubLogo />
                     </a>
                 </div>
                 <div class="social">
-                    <a href="https://linkedin.com/fenil-k-jain" aria-label="Github">
+                    <a href="https://linkedin.com/fenil-k-jain" aria-label="Linkedin" target="_blank">
                         <LinkedinLogo />
                     </a>
                 </div>
                 <div class="social">
-                    <a href="https://twitter.com/fenil_jain_" aria-label="Github">
+                    <a href="https://twitter.com/fenil_jain_" aria-label="Twitter" target="_blank">
                         <TwitterLogo />
                     </a>
                 </div>
@@ -48,15 +48,20 @@ import TwitterLogo from '@assets/svgs/twitter.svg';
         width: 15%;
     }
 
+    /* Follow LVHA rule for anchor tags */
+    .social:visited {
+        fill: white;
+    }
+
+    .social:hover {
+        fill: var(--logo-backdrop);
+    }
+
     .social {
         width: 2.5rem;
         height: 2.5rem;
         fill: white;
 
         margin: 10% 5% 0 5%;
-    }
-
-    .social:hover {
-        fill: var(--logo-backdrop);
     }
 </style>

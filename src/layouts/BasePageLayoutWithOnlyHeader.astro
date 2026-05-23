@@ -47,6 +47,13 @@ import Footer from '@components/Footer.astro';
     }
 </style>
 
+<!-- We are not trying to globalize anchor interactions as different components want different
+    behaviour it, for example:
+    - Socials and header buttons should convert back to white even after being visited
+    - While we can let blog links, about page link follow natural link of browser history and visited link
+    turning blue, we just want to underline them on hover
+    - For resume, we always want links to be blue, and hover should just underline them
+-->
 <style is:global>
     :root {
         --bg: #fafafa;
@@ -68,13 +75,5 @@ import Footer from '@components/Footer.astro';
             --border: #3a3a3a;
             --text-color: #dadada;
         }
-    }
-
-    a, a:visited {
-        color: var(--text-color);
-    }
-
-    a:hover {
-        color: var(--logo-backdrop);
     }
 </style>
