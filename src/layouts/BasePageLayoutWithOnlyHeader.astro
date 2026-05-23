@@ -21,15 +21,23 @@ import Footer from '../components/Footer.astro';
 
 <style>
     html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
         background: var(--bg);
+        /* By default both html and body only take as much space as its child.
+         * But we want it to take either 100vh for main, blogs and about page,
+         * or more in case of blog markdown render page.
+         */
+        min-height: 100vh;
+        /* by default it has 8 margin?? */
+        margin: 0;
     }
 
     body {
-        min-height: 100vh;
-        box-sizing: border-box;
+        /* so that main-body content can take full
+         * width left between header and footer
+         * using flex-grow
+         */
+        display: flex;
+        flex-direction: column;
     }
 </style>
 
