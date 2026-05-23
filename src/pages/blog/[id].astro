@@ -1,11 +1,12 @@
 ---
 import { getCollection, render } from 'astro:content';
+import BasePageLayoutWithOnlyHeader from '../../layouts/BasePageLayoutWithOnlyHeader.astro';
 
 export async function getStaticPaths() {
     const allBlogsNotDraft = await getCollection('blog', ({ data }) => !data.draft);
     return allBlogsNotDraft.map(blog => {
         return {
-            params: { id: blog.id },
+            params: { id: blog.data.slug },
             props: { blog },
         };
     });
@@ -15,5 +16,15 @@ const { blog } = Astro.props;
 const { Content } = await render(blog);
 ---
 
-<h1>{blog.slug}</h1>
-<Content />
+<BasePageLayoutWithOnlyHeader>
+    <div class="main-body">
+        <h1>{blog.slug}</h1>
+        <Content />
+    </div>
+</BasePageLayoutWithOnlyHeader>
+
+<style>
+.main-body {
+    color: var(--text-color);
+}
+</style>
