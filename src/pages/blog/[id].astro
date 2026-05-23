@@ -3,7 +3,7 @@ import BasePageLayoutWithOnlyHeader from '@layouts/BasePageLayoutWithOnlyHeader.
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
-    const allBlogsNotDraft = await getCollection('blog', ({ data }) => !data.draft);
+    const allBlogsNotDraft = await getCollection('blogs', ({ data }) => !data.draft);
     return allBlogsNotDraft.map(blog => {
         return {
             params: { id: blog.data.slug },

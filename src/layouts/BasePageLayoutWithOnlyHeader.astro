@@ -10,6 +10,12 @@ import Footer from '@components/Footer.astro';
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
+        <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="Fenil Jain"
+            href={new URL("rss.xml", Astro.site)}
+        />
 		<title>Fenil Jain</title>
 	</head>
 	<body>
@@ -27,7 +33,7 @@ import Footer from '@components/Footer.astro';
          * or more in case of blog markdown render page.
          */
         min-height: 100vh;
-        /* by default it has 8 margin?? */
+        /* by default it has 8 margin 🤦 */
         margin: 0;
     }
 

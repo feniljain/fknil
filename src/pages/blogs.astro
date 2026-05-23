@@ -1,8 +1,10 @@
 ---
-import { getCollection } from 'astro:content';
 import BasePageLayout from '@layouts/BasePageLayout.astro';
+import RssLogo from '@assets/svgs/rss.svg';
 
-const allBlogsNotDraft = await getCollection('blog', ({ data }) => !data.draft);
+import { getCollection } from 'astro:content';
+
+const allBlogsNotDraft = await getCollection('blogs', ({ data }) => !data.draft);
 
 const techBlogs = allBlogsNotDraft.filter((blog) => blog.data.tech);
 const nonTechBlogs = allBlogsNotDraft.filter((blog) => !blog.data.tech);
@@ -15,6 +17,12 @@ const sortedNonTechBlogs = nonTechBlogs.sort((a, b) => b.data.publishedOn.getTim
 
 <BasePageLayout>
     <div class="blog-list-body">
+        <div>
+            <a href="/rss.xml">
+                RSS Feed:
+                 <RssLogo  class="rss-logo"/>
+            </a>
+        </div>
         <h2>Tech Blogs</h2>
         <ul>
         {sortedTechBlogs.map(blog => (
@@ -31,8 +39,24 @@ const sortedNonTechBlogs = nonTechBlogs.sort((a, b) => b.data.publishedOn.getTim
 </BasePageLayout>
 
 <style>
+    a, a:visited {
+        text-decoration: none;
+    }
+
     .blog-list-body {
         text-align: start;
         padding: 5%;
+    }
+
+    .rss-logo {
+        width: 2.1rem;
+        height: 2.1rem;
+        fill: white;
+
+        margin: 0 0 0 5px;
+    }
+
+    .rss-logo:hover {
+        fill: var(--logo-backdrop);
     }
 </style>
