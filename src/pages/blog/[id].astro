@@ -1,6 +1,6 @@
 ---
+import BasePageLayoutWithOnlyHeader from '@layouts/BasePageLayoutWithOnlyHeader.astro';
 import { getCollection, render } from 'astro:content';
-import BasePageLayoutWithOnlyHeader from '../../layouts/BasePageLayoutWithOnlyHeader.astro';
 
 export async function getStaticPaths() {
     const allBlogsNotDraft = await getCollection('blog', ({ data }) => !data.draft);
