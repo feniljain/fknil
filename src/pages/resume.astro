@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fenil Jain - Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            width: 290mm;
+            height: 300mm;
+            margin: auto;
+            /*
+            width: 210mm;
+            height: 297mm;
+            padding: 20px;
+            box-sizing: border-box;
+            */
+        }
+        .section {
+            padding: 0px 0px 10px 0px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h2 {
+        }
+        h3 {
+            margin: 12px 0px 12px 0px;
+        }
+        .header {
+            text-align: center;
+        }
+        .contact-info {
+            text-align: center;
+            margin: 0px;
+            /* margin-bottom: 10px; */
+        }
+        .contact-info a {
+            text-decoration: none;
+            color: #0073b1;
+            margin: 0 10px;
+        }
+        .contact-info p {
+            margin: 5px 10px 5px 10px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .section-title {
+            border: solid;
+            border-width: 2px 0px 2px 0px;
+            padding: 15px 0px 15px 0px;
+            margin: 0px;
+        }
+        .work-exp-company-tech {
+            font-style: italic;
+        }
+        .info-header-section {
+            border: solid;
+            border-width: 1px 0px 2px 0px;
+            margin: 0px;
+        }
+        ul {
+            font-size: 15px;
+        }
+        @page {
+            size: 21cm 29.7cm;
+            margin: 30mm 45mm 30mm 45mm;
+            /* change the margins as you want them to be. */
+        }
+        a:* {
+            color: #0000FF;
+        }
+    </style>
+</head>
+<body>
+    <div class="info-header-section">
+        <div class="header">
+            <h1>Fenil Jain</h1>
+        </div>
+        <div class="contact-info">
+            <p>
+                <a href="https://linkedin.com/in/fenil-k-jain">LinkedIn</a> |
+                <a href="mailto:fkjainco@gmail.com">fkjainco@gmail.com</a> |
+                <a href="https://github.com/feniljain/">Github</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Technical Skills</h2>
+        <p><strong>Tools: </strong>Docker, Kubernetes, Redis, RabbitMQ, Kafka, Spark, Postgres, Iceberg, GStreamer, FFmpeg, Git, gRPC, ReactJS, NodeJS, Vim, Tmux</p>
+        <p><strong>Languages: </strong>Rust, Golang, TypeScript, Python, C++, Zig</p>
+    </div>
+
+    <div class="section">
+     <h2 class="section-title">Work Experience</h2>
+        <h3 class="work-exp-company-title">e6data - Software Development Engineer (Sep 2024 - Present)</h3>
+        <div class="work-exp-company-tech">Iceberg - Rust - Glue - Hive</div>
+            <ul>
+                <li>Led implementation of Rust integration in Java based OLAP engine leading to performance increase of 2X over different components</li>
+                <li>Led migration from internal vector representation to Arrow</li>
+                <li>Designed and implemented Linkstream, a high-performance <strong>Iceberg streaming ingestion</strong> system on RisingWave, successfully onboarding a customer with <strong>50,000 MPS and a 15-second store-to-query SLA</strong>.</li>
+                <li>Enhanced Iceberg Rust with <strong>Glue</strong> and <strong>Hive update table support</strong> for ACID-compliant writes and integrated <strong>AWS authentication</strong> methods, making Linkstream production-ready.</li>
+                <li>Migrated the Iceberg sink in Linkstream from icelake and JNI based catalog connectors to <strong>Iceberg Rust</strong> for improved stability and performance.</li>
+                <li>Developed <strong>Hive and Glue</strong> catalog support in Iceberg sink for Linkstream.</li>
+                <li>Resolved <strong>Iceberg and Hive</strong> integration issues in e6data's in-house <strong>query engine</strong>.</li>
+                <li>Created custom <strong>Kubernetes</strong> deployment files for Linkstream, optimizing its deployment and scalability.</li>
+            </ul>
+
+        <h3>Dyte - Software Development Engineer (Sep 2021 - Sep 2024)</h3>
+		<div class="work-exp-company-tech">WebRTC - WebSockets - GStreamer - FFmpeg - Livestreaming - RabbitMQ - Golang - Typescript - Rust - Kotlin - FFI</div>
+            <ul>
+                <li>Optimized the scaling socket layer, reducing worst case response times from <strong>5-10s to sub-100ms</strong> alongside <strong>reducing failure rates by 85%</strong> drastically by optimizing data access patterns, evolving APIs and removing locking.</li>
+                <li>Led the development of the livestreaming product from concept to launch. Took ownership of end-to-end development, turning it into a core revenue vertical eventually contributing upto <strong>50%, i.e. 250K dollars</strong>.</li>
+                <li>Developed <strong>FFI bindings</strong> of libmediasoupclient for Android/iOS and a <strong>Kotlin Multi-Platform</strong> call statistics collector, forming the foundation of all <strong>enterprise</strong> mobile SDKs.</li>
+                <li>Worked on server-side headless browser based recording service, fixing concurrency bugs, writing custom autoscaler, improving <strong>FFmpeg</strong> pipelines and integrating livestreaming.</li>
+                <li>Worked on individual audio track recording, transcription and dev tooling in stream recording service using <strong>GStreamer</strong> and <strong>Rust</strong>.</li>
+                <li>Actively participating in debugging production issues ranging from memory leaks, DB migration failovers, retry storms, etc. on multiple different services.</li>
+                <li>Led work on stability of socket layer, backbone of media and room management core workflows. Established <strong>quick iteration development, testing suites</strong>, better ergonomics using <strong>incremental refactors</strong>.</li>
+                <li>Built and actively helped maintain billing and usage tracking services in <strong>Typescript</strong> allowing automated payments and invoices.</li>
+            </ul>
+
+        <h3>Appointy - Software Development Intern (Fall 2021 - July 2021)</h3>
+		<div class="work-exp-company-tech">Golang - gRPC - GraphQL - CodeGen</div>
+            <ul>
+                <li>Responsible for working on the company's backend in Golang, added features like complete PayPal integration for third-party vendors to take benefit of all features provided by PayPal,
+                    internal code generation tools, iCal feed services and other misc tasks.</li>
+            </ul>
+
+        <h3>Winuall - Software Development Intern (October 2020 – March 2021)</h3>
+		<div class="work-exp-company-tech">Golang - MongoDB - Node</div>
+            <ul>
+                <li>Responsible for developing the company's marketplace (Online Learning Platform for independent/established tutors to students) backend and surrounding infrastructure. Worked with MongoDB as a primary database. Languages used were Golang for almost all tasks and some small node microservices.</li>
+            </ul>
+
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Open Source And Projects</h2>
+            <h3 class="project-title">Iceberg Rust</h3>
+            <ul>
+                <li>
+                    Implemented nan value count statistic in parquet writer
+                    [<a href="https://github.com/apache/iceberg-rust/pull/907">Github</a>]
+                </li>
+                <li>
+                    Developed Glue and Hive update table methods completing write support for iceberg-rs
+                    [<a href="https://github.com/feniljain/iceberg-rust/blob/1b74b74a05c6d0a504189c9b303dbd094f321bc1/crates/catalog/hms/src/catalog.rs#L507-L578">Github</a>]
+                    [<a href="https://github.com/feniljain/iceberg-rust/blob/d51f43ce83f90f93ab6e088f79b9efc5f1b7f053/crates/catalog/glue/src/catalog.rs#L629-L701">Github</a>]
+                </li>
+                <li>
+                    Fixed incorrect key_metadata defaults issue
+                    [<a href="https://github.com/apache/iceberg-rust/pull/800">Github</a>]
+                </li>
+                <li>
+                    Implemented AWS Authentication methods for different catalogs
+                    [<a href="https://github.com/feniljain/iceberg-rust/commit/b3c1221c973cd8617d65113a2518fbedf7f98188">Github</a>]
+                </li>
+                <li>
+                    Wrote partition data write integration test
+                    [<a href="https://github.com/apache/iceberg-rust/pull/742">Github</a>]
+                </li>
+            </ul>
+
+            <h3 class="project-title">Rust Analyzer</h3>
+            <ul>
+                <li>Developed a complex assist: Extract To Module and worked with the community to improve and maintain it.</li>
+                <li>Contributed critical fixes to Rust Analyzer, improving refactoring, diagnostics, and code assists for thousands of Rust developers.
+                [<a href="https://github.com/rust-lang/rust-analyzer/pulls?q=is%3Apr+sort%3Aupdated-desc+author%3Afeniljain+is%3Aclosed">Github</a>]</li>
+            </ul>
+
+            <h3 class="project-title">Dead Simple Shell (DSS)</h3>
+            <ul>
+                <li>
+                    A POSIX compatible shell from ground up in Rust, implemented a lexer, parser and shell engine from scratch covering basic command execution, piping, squirrel/direction operators, job control, etc.
+                    [<a href="https://github.com/feniljain/dss">Github</a>]
+                </li>
+            </ul>
+
+            <h3 class="project-title">Websocket Smallest Binary</h3>
+            <ul>
+                <li>
+                    A solution of 500 bytes to Dyte’s hiring challenge of developing smallest WebSocket client to receive message and reply to server.
+                    [<a href="https://github.com/feniljain/wscodegolf">Github</a>]
+                </li>
+            </ul>
+    </div>
+</body>
+</html>
