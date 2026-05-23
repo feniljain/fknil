@@ -1,0 +1,4 @@
+[submodule "blogs"]
+	path = blogs
+	url = https://github.com/feniljain/blogs.git
+	branch = feat-frontmatter

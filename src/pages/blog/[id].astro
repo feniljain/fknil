@@ -1,0 +1,54 @@
+---
+import BasePageLayoutWithOnlyHeader from '@layouts/BasePageLayoutWithOnlyHeader.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+    const allBlogsNotDraft = await getCollection('blogs', ({ data }) => !data.draft);
+    return allBlogsNotDraft.map(blog => {
+        return {
+            params: { id: blog.data.slug },
+            props: { blog },
+        };
+    });
+}
+
+const { blog } = Astro.props;
+const { Content } = await render(blog);
+---
+
+<BasePageLayoutWithOnlyHeader>
+    <div class="main-body">
+        <div class="blog-title">{blog.data.title}</div>
+        <p class="blog-dates">Published on: {blog.data.publishedOn.toLocaleDateString()}</p>
+        <p class="blog-dates">Last edited on: {blog.data.lastEditedOn.toLocaleDateString()}</p>
+        <Content />
+    </div>
+</BasePageLayoutWithOnlyHeader>
+
+<style>
+    .main-body {
+        color: var(--text-color);
+        width: 50%;
+        font-size: 1rem;
+        margin: 0 auto 2% auto;
+    }
+
+    .blog-title {
+        text-align: center;
+        font-size: 3rem;
+    }
+
+    .blog-dates {
+        font-size: 1.3rem;
+    }
+
+    /* Follow LVHA principles */
+    a, a:visited {
+        color: var(--logo-backdrop);
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>

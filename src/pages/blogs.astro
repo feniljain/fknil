@@ -1,0 +1,68 @@
+---
+import BasePageLayout from '@layouts/BasePageLayout.astro';
+import RssLogo from '@assets/svgs/rss.svg';
+
+import { getCollection } from 'astro:content';
+
+const allBlogsNotDraft = await getCollection('blogs', ({ data }) => !data.draft);
+
+const techBlogs = allBlogsNotDraft.filter((blog) => blog.data.tech);
+const nonTechBlogs = allBlogsNotDraft.filter((blog) => !blog.data.tech);
+
+const sortedTechBlogs = techBlogs.sort((a, b) => b.data.publishedOn.getTime() - a.data.publishedOn.getTime());
+
+const sortedNonTechBlogs = nonTechBlogs.sort((a, b) => b.data.publishedOn.getTime() - a.data.publishedOn.getTime());
+
+---
+
+<BasePageLayout>
+    <div class="blog-list-body">
+        <div>
+            <a href="/rss.xml" target="_blank">
+                RSS Feed:
+                 <RssLogo  class="rss-logo"/>
+            </a>
+        </div>
+        <h2>Tech Blogs</h2>
+        <ul>
+        {sortedTechBlogs.map(blog => (
+            <li><a href={`/blog/${blog.data.slug}`}>{blog.data.slug}</a></li>
+        ))}
+        </ul>
+        <h2>Non Tech Blogs</h2>
+        <ul>
+        {sortedNonTechBlogs.map(blog => (
+            <li><a href={`/blog/${blog.data.slug}`}>{blog.data.slug}</a></li>
+        ))}
+        </ul>
+    <div>
+</BasePageLayout>
+
+<style>
+    /* Follow LVHA principles */
+    a, a:visited {
+        color: var(--logo-backdrop);
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .blog-list-body {
+        text-align: start;
+        padding: 5%;
+    }
+
+    .rss-logo {
+        width: 2.1rem;
+        height: 2.1rem;
+        fill: white;
+
+        margin: 0 0 0 5px;
+    }
+
+    .rss-logo:hover {
+        fill: var(--logo-backdrop);
+    }
+</style>

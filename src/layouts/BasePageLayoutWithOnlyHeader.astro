@@ -1,0 +1,79 @@
+---
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+        <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="Fenil Jain"
+            href={new URL("rss.xml", Astro.site)}
+        />
+		<title>Fenil Jain</title>
+	</head>
+	<body>
+	    <Header />
+        <slot />
+	    <slot name="footer" />
+	</body>
+</html>
+
+<style>
+    html, body {
+        background: var(--bg);
+        /* By default both html and body only take as much space as its child.
+         * But we want it to take either 100vh for main, blogs and about page,
+         * or more in case of blog markdown render page.
+         */
+        min-height: 100vh;
+        /* by default it has 8 margin 🤦 */
+        margin: 0;
+    }
+
+    body {
+        /* so that main-body content can take full
+         * width left between header and footer
+         * using flex-grow
+         */
+        display: flex;
+        flex-direction: column;
+    }
+</style>
+
+<!-- We are not trying to globalize anchor interactions as different components want different
+    behaviour it, for example:
+    - Socials and header buttons should convert back to white even after being visited
+    - While we can let blog links, about page link follow natural link of browser history and visited link
+    turning blue, we just want to underline them on hover
+    - For resume, we always want links to be blue, and hover should just underline them
+-->
+<style is:global>
+    :root {
+        --bg: #fafafa;
+        --fg: #212121;
+        --muted: #5a5a5a;
+        --logo-backdrop: #1565c0;
+        --alt-bg: #e0e0e0;
+        --border: #d0d0d0;
+        --text-color: #212121;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --bg: #212121;
+            --fg: #dadada;
+            --muted: #a0a0a0;
+            --logo-backdrop: #42a5f5;
+            --alt-bg: #424242;
+            --border: #3a3a3a;
+            --text-color: #dadada;
+        }
+    }
+</style>

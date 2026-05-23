@@ -1,0 +1,49 @@
+<div class="navbar">
+    <div class="navbar-title ">
+        <a class="navbar-btn" href="/">Home</a>
+    </div>
+    <div class="navbar-btns">
+        <a class="navbar-btn" href="/blogs">Blogs</a>
+        <a class="navbar-btn" href="/about">About</a>
+        <a class="navbar-btn" href="/resume" target="_blank">Resume</a>
+    </div>
+</div>
+
+<style>
+    /* Follow LVHA principles */
+    .navbar-btn:visited {
+        color: var(--text-color);
+    }
+
+    .navbar-btn:hover {
+        color: var(--logo-backdrop);
+        text-decoration: underline;
+    }
+
+    .navbar-btn {
+        color: var(--text-color);
+    }
+
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 2rem;
+
+        box-sizing: border-box;
+        width: 100%;
+        height: 5%;
+
+        padding: 0.5%;
+    }
+
+    .navbar-title {
+        font-size: 2.1rem;
+        width: 50%;
+    }
+
+    .navbar-btns a {
+        margin: 0 15px;
+    }
+</style>
