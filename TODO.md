@@ -19,4 +19,4 @@
 - [X] make all social links, rss feed and resume open in a new tab
 - [X] migrate blog repo changes to `main`
 - [X] buy a domain and host everything
-- [ ] write blog about building this website
+- [X] write blog about building this website
