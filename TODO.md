@@ -18,5 +18,5 @@
 - [X] setup cloudflare to use/build astro
 - [X] make all social links, rss feed and resume open in a new tab
 - [X] migrate blog repo changes to `main`
-- [ ] buy a domain and host everything
+- [X] buy a domain and host everything
 - [ ] write blog about building this website
