@@ -19,8 +19,8 @@ const { Content } = await render(blog);
 <BasePageLayoutWithOnlyHeader>
     <div class="main-body">
         <div class="blog-title">{blog.data.title}</div>
-        <p class="blog-dates">Published on: {blog.data.publishedOn.toLocaleDateString()}</p>
-        <p class="blog-dates">Last edited on: {blog.data.lastEditedOn.toLocaleDateString()}</p>
+        <p class="blog-dates">Published on: {blog.data.publishedOn.toLocaleDateString('en-GB')}</p>
+        <p class="blog-dates">Last edited on: {blog.data.lastEditedOn.toLocaleDateString('en-GB')}</p>
         <Content />
     </div>
 </BasePageLayoutWithOnlyHeader>
