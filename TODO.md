@@ -20,3 +20,4 @@
 - [X] migrate blog repo changes to `main`
 - [X] buy a domain and host everything
 - [X] write blog about building this website
+- [X] fix rendering on mobile: navbar, font sizes on small screens, width of rendering of resume and blog post
