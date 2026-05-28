@@ -7,4 +7,8 @@ import mdx from '@astrojs/mdx';
 export default defineConfig({
     integrations: [mdx()],
     site: "https://fknil.pages.dev",
+    server: {
+        port: 4321,
+        host: true,
+    },
 });
