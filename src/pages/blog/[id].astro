@@ -28,9 +28,8 @@ const { Content } = await render(blog);
 <style>
     .main-body {
         color: var(--text-color);
-        width: 50%;
-        font-size: 1rem;
-        margin: 0 auto 2% auto;
+        width: 70%;
+        margin: 1% auto 2% auto;
     }
 
     .blog-title {
@@ -43,12 +42,29 @@ const { Content } = await render(blog);
     }
 
     /* Follow LVHA principles */
-    a, a:visited {
+    .main-body :global(a),
+    .main-body :global(a:visited) {
         color: var(--logo-backdrop);
         text-decoration: none;
     }
 
-    a:hover {
+    .main-body :global(a:hover) {
         text-decoration: underline;
+    }
+
+    /* Mobile-only styles */
+    @media (max-width: 480px) {
+        .main-body {
+            width: 90%;
+            margin: 2% auto 5% auto;
+        }
+
+        .blog-title {
+            font-size: 2rem;
+        }
+
+        .blog-dates {
+            font-size: 1rem;
+        }
     }
 </style>
