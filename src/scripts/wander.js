@@ -10,20 +10,18 @@ const wander = {
 
    // My favourite websites and pages I recommend to the Wander community.
    pages: [
-       'https://yashgarg.dev/',
        'https://msfjarvis.dev/',
        'https://wantguns.dev/',
        'https://xkcd.com/',
        'https://thedailywtf.com/',
        'https://solar.lowtechmagazine.com/',
-       'https://blr.indiewebclub.org/'
-       'https://matklad.github.io/'
+       'https://blr.indiewebclub.org/',
+       'https://matklad.github.io/',
        'https://eli.thegreenplace.net/',
        'https://ratfactor.com/',
        'https://muratbuffalo.blogspot.com/',
-       'https://www.bitsxpages.com/',
        'https://www.allthingsdistributed.com/',
-       'https://brooker.co.za/',
+       'https://brooker.co.za/blog/',
        'https://www.potaroo.net/',
        'https://transactional.blog/',
        'https://pagedout.institute/',
