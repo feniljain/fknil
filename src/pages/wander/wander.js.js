@@ -1,4 +1,4 @@
-const wander = {
+export const wander = {
    // Other Wander consoles that visitors can reach from my console.
    consoles: [
        'https://susam.net/wander/',
@@ -32,4 +32,9 @@ const wander = {
    ignore: [],
 };
 
-export default wander;
+export function GET({ params, request }) {
+  return new Response(
+        JSON.stringify(wander),
+        { headers: { "Content-Type": "application/json" } },
+    );
+};
