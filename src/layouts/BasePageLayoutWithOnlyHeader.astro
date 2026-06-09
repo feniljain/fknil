@@ -35,6 +35,7 @@ import Footer from '@components/Footer.astro';
         min-height: 100vh;
         /* by default it has 8 margin 🤦 */
         margin: 0;
+
     }
 
     body {
@@ -56,6 +57,12 @@ import Footer from '@components/Footer.astro';
     - For resume, we always want links to be blue, and hover should just underline them
 -->
 <style is:global>
+    * {
+        /* Always include padding and border in calculation
+         * of height and width of an element */
+        box-sizing: border-box;
+    }
+
     :root {
         --bg: #fafafa;
         --fg: #212121;
