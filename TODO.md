@@ -21,3 +21,5 @@
 - [X] buy a domain and host everything
 - [X] write blog about building this website
 - [X] fix rendering on mobile: navbar, font sizes on small screens, width of rendering of resume and blog post
+- [ ] make resume responsive
+- [ ] make wander.js get rendered by wander code itself
