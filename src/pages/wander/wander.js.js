@@ -6,10 +6,12 @@ export const wander = {
        'https://juleskourelakos.com/wander/',
        'https://fractaldragon.net/wander/',
        'https://foodbark.io/wander/',
+       'https://yashgarg.dev/wander/',
    ],
 
    // My favourite websites and pages I recommend to the Wander community.
    pages: [
+       'https://yashgarg.dev/',
        'https://msfjarvis.dev/',
        'https://wantguns.dev/',
        'https://xkcd.com/',
