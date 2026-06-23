@@ -17,9 +17,9 @@ export async function GET(context) {
         pubDate: blog.data.publishedOn,
         description: '',
         link: `/blog/${blog.data.slug}/`,
-        // content: sanitizeHtml(parser.render(blog.body), {
-        //     allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img'])
-        // }),
+        content: sanitizeHtml(parser.render(blog.body), {
+            allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img'])
+        }),
     }));
 
     const latestWeekNoteIdx = feedItems.findIndex((ele) => (ele.pubDate.getTime() - latestWeekNote.data.publishedOn.getTime()) < 0);
@@ -29,6 +29,9 @@ export async function GET(context) {
         pubDate: latestWeekNote.data.publishedOn,
         description: '',
         link: `/weeknote/${latestWeekNote.data.slug}/`,
+        content: sanitizeHtml(parser.render(latestWeekNote.body), {
+            allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img'])
+        }),
     });
 
     return rss({
