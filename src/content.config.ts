@@ -17,7 +17,7 @@ const blogs = defineCollection({
 });
 
 const weekNotes = defineCollection({
-  loader: glob({ base: './weeknotes/', pattern: '**/*.{md,mdx}' }),
+  loader: glob({ base: './weeknotes/', pattern: '**/BLOG.{md,mdx}' }),
   schema: z.object({
     draft: z.boolean(),
     slug: z.string(),
