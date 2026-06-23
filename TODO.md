@@ -28,3 +28,5 @@
 - [X] add just latest weeknote in RSS feed
 - [ ] move images to individual blogs and weeknotes repo
 - [ ] make resume responsive
+- [ ] change favicon to your usual DP image used everywhere
+- [ ] change homepage to have header items in the center with images with blue fill on hover
