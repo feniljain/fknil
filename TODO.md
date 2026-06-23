@@ -22,9 +22,9 @@
 - [X] write blog about building this website
 - [X] fix rendering on mobile: navbar, font sizes on small screens, width of rendering of resume and blog post
 - [X] fix wander.js
-- [ ] add support for weeknotes
-- [ ] add just latest weeknote in RSS feed
-- [ ] check if layout and everything is correct for weeknote
-- [ ] complete TODOs in weeknote
+- [X] add support for weeknotes
+- [X] check if layout and everything is correct for weeknote
+- [X] complete TODOs in weeknote
+- [X] add just latest weeknote in RSS feed
 - [ ] move images to individual blogs and weeknotes repo
 - [ ] make resume responsive
