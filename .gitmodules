@@ -4,4 +4,3 @@
 [submodule "weeknotes"]
 	path = weeknotes
 	url = https://github.com/feniljain/weeknotes.git
-    branch = feat-photos-and-videos
