@@ -3,4 +3,4 @@
 	url = https://github.com/feniljain/blogs.git
 [submodule "weeknotes"]
 	path = weeknotes
-	url = https://github.com/feniljain/weeknotes.git
+	url = git@github.com:feniljain/weeknotes.git
