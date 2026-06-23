@@ -1,0 +1,18 @@
+---
+import BlogLayout from '@layouts/BlogLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+    const allWeekNotesNotDraft = await getCollection('weekNotes', ({ data }) => !data.draft);
+    return allWeekNotesNotDraft.map(weekNote => {
+        return {
+            params: { id: weekNote.data.slug },
+            props: { weekNote },
+        };
+    });
+}
+
+const { weekNote } = Astro.props;
+---
+
+<BlogLayout blog={weekNote} />

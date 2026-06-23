@@ -21,5 +21,10 @@
 - [X] buy a domain and host everything
 - [X] write blog about building this website
 - [X] fix rendering on mobile: navbar, font sizes on small screens, width of rendering of resume and blog post
+- [X] fix wander.js
+- [ ] add support for weeknotes
+- [ ] add just latest weeknote in RSS feed
+- [ ] check if layout and everything is correct for weeknote
+- [ ] complete TODOs in weeknote
+- [ ] move images to individual blogs and weeknotes repo
 - [ ] make resume responsive
-- [ ] make wander.js get rendered by wander code itself

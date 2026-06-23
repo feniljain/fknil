@@ -16,4 +16,17 @@ const blogs = defineCollection({
   }),
 });
 
-export const collections = { blogs };
+const weekNotes = defineCollection({
+  loader: glob({ base: './weeknotes/', pattern: '**/*.{md,mdx}' }),
+  schema: z.object({
+    draft: z.boolean(),
+    slug: z.string(),
+    title: z.string(),
+    // This would only work if dates are in ISO format
+    // in blog markdown files
+    publishedOn: z.coerce.date(),
+    lastEditedOn: z.coerce.date(),
+  }),
+});
+
+export const collections = { blogs, weekNotes };
