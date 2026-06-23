@@ -1,3 +1,7 @@
 [submodule "blogs"]
 	path = blogs
 	url = https://github.com/feniljain/blogs.git
+[submodule "weeknotes"]
+	path = weeknotes
+	url = https://github.com/feniljain/weeknotes.git
+    branch = feat-photos-and-videos
