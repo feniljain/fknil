@@ -16,19 +16,20 @@ function rssLinkFromSrc(src, site) {
 
 function sanitizeRssContent(html, site) {
     return sanitizeHtml(html, {
-        allowedTags: sanitizeHtml.defaults.allowedTags.concat(['a']),
+        allowedTags: sanitizeHtml.defaults.allowedTags.concat(['a', 'img']),
         allowedAttributes: {
             ...sanitizeHtml.defaults.allowedAttributes,
             a: ['href'],
+            img: ['src', 'alt', 'title', 'width', 'height', 'style'],
         },
         transformTags: {
             img: (_tagName, attributes) => {
-                const href = attributes.src ? rssLinkFromSrc(attributes.src, site) : '#';
-
                 return {
-                    tagName: 'a',
-                    attribs: { href },
-                    text: attributes.alt ? `Image: ${attributes.alt}` : href,
+                    tagName: 'img',
+                    attribs: {
+                        ...attributes,
+                        src: attributes.src ? rssLinkFromSrc(attributes.src, site) : '',
+                    },
                 };
             },
             iframe: (_tagName, attributes) => {
