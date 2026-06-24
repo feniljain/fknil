@@ -6,8 +6,8 @@
     "node": ">=22.12.0"
   },
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
+    "dev": "bash scripts/copy-rss-images.sh && astro dev",
+    "build": "bash scripts/copy-rss-images.sh && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },

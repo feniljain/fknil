@@ -27,6 +27,9 @@
 - [X] complete TODOs in weeknote
 - [X] add just latest weeknote in RSS feed
 - [X] move images to individual blogs and weeknotes repo
+- [X] change favicon to your usual DP image used everywhere
+- [X] make imgs in RSS have permanent URL
+- [X] remove Image and Import from RSS feed for proper URLs of images and no html in content sent over RSS
+- [X] remove iframe from RSS feed and instead just link to video?
 - [ ] make resume responsive
-- [ ] change favicon to your usual DP image used everywhere
 - [ ] change homepage to have header items in the center with images with blue fill on hover
