@@ -8,7 +8,7 @@
         <!-- </div> -->
         <div class="contact-info">
             <p>
-                <a href="https://github.com/feniljain/">Github</a> |
+                <a href="https://github.com/feniljain/">GitHub</a> |
                 <a href="mailto:fkjainco@gmail.com">fkjainco@gmail.com</a> |
                 <a href="https://linkedin.com/in/fenil-k-jain">LinkedIn</a>
             </p>
@@ -18,8 +18,8 @@
     <div class="section">
         <h2 class="section-title">Technical Skills</h2><br>
         <strong>Languages: </strong> Rust, Go, TypeScript, Python, C++, Zig<br>
-        <strong>Systems and Performance:</strong> Linux, perf, pprof, flame graphs, jemalloc<br>
         <strong>Infrastructure:</strong> Kubernetes, Docker, Helm<br>
+        <strong>Systems and Performance:</strong> Linux, perf, pprof, flame graphs, jemalloc<br>
         <strong>Data Systems: </strong> Apache DataFusion, Arrow, Iceberg, PostgreSQL, Kafka, Redis<br>
         <strong>Real-Time Media: </strong> WebRTC, GStreamer, FFmpeg<br>
     </div>
@@ -27,10 +27,10 @@
     <div class="section">
      <h2 class="section-title">Work Experience</h2>
         <h3 class="work-exp-company-title">e6data - Software Development Engineer (Sep 2024 - Present)</h3>
-        <div class="work-exp-company-tech">Rust - Java - DataFusion - Arrow - Iceberg - Kafka - FFI - NVMe</div>
+        <div class="work-exp-company-tech">Kubernetes - Rust - Java - DataFusion - Arrow - Iceberg - Kafka - FFI - NVMe</div>
             <ul>
                 <li>
-                Built Linkstream, an <strong>Iceberg streaming-ingestion</strong> system built on RisingWave, that onboarded a customer at <strong>50K</strong> messages/second with a <strong>15-second</strong> ingestion-to-query SLA.
+                Updated e6data's <strong>Kubernetes operator</strong> to remove Storage and Schema microservice deployments following a metadata-architecture redesign, simplifying cluster topology and lifecycle management.
                 </li>
                 <li>
                 Extended RisingWave's <strong>Kubernetes operator</strong> to support e6data's infrastructure and local-development workflows, adapting deployment and lifecycle management to internal platform requirements.
@@ -55,6 +55,9 @@
                 </li>
                 <li>
                 Established an upstream contribution workflow that helped e6data become a <strong>leading</strong> Apache DataFusion contributor and <strong>me</strong> getting recognized individually as a <strong>major contributor</strong>. [<a href="https://theconsensus.dev/p/2026/04/03/who-contributed-to-datafusion-53.html">report</a>]
+                </li>
+                <li>
+                Built Linkstream, an <strong>Iceberg streaming-ingestion</strong> system built on RisingWave, that onboarded a customer at <strong>50K</strong> messages/second with a <strong>15-second</strong> ingestion-to-query SLA.
                 </li>
                 <li>
                 Added Glue and Hive catalog updates and AWS authentication to iceberg-rust, enabling <strong>production-grade ACID writes</strong> and replacing JNI-based catalog integrations.
@@ -86,19 +89,19 @@
                 </li>
                 <li>
                     feat: allow pushdown of dynamic filters having partition cols
-                    [<a href="https://github.com/apache/datafusion/pull/18172">Github</a>]
+                    [<a href="https://github.com/apache/datafusion/pull/18172">GitHub</a>]
                 </li>
                 <li>
                     feat: integrate batch coalescer with async fn exec
-                    [<a href="https://github.com/apache/datafusion/pull/19342">Github</a>]
+                    [<a href="https://github.com/apache/datafusion/pull/19342">GitHub</a>]
                 </li>
                 <li>
                     Remove coalesce batches rule and deprecate CoalesceBatchesExec
-                    [<a href="https://github.com/apache/datafusion/pull/19622">Github</a>]
+                    [<a href="https://github.com/apache/datafusion/pull/19622">GitHub</a>]
                 </li>
                 <li>
                     fix: predicate cache stats calculation
-                    [<a href="https://github.com/apache/datafusion/pull/19561">Github</a>]
+                    [<a href="https://github.com/apache/datafusion/pull/19561">GitHub</a>]
                 </li>
             </ul>
 
@@ -106,24 +109,24 @@
             <ul>
                 <li>
                     Implemented NaN value count statistic in parquet writer
-                    [<a href="https://github.com/apache/iceberg-rust/pull/907">Github</a>]
+                    [<a href="https://github.com/apache/iceberg-rust/pull/907">GitHub</a>]
                 </li>
                 <li>
                     Developed Glue and Hive update table methods completing write support for iceberg-rs
-                    [<a href="https://github.com/feniljain/iceberg-rust/blob/1b74b74a05c6d0a504189c9b303dbd094f321bc1/crates/catalog/hms/src/catalog.rs#L507-L578">Github</a>]
-                    [<a href="https://github.com/feniljain/iceberg-rust/blob/d51f43ce83f90f93ab6e088f79b9efc5f1b7f053/crates/catalog/glue/src/catalog.rs#L629-L701">Github</a>]
+                    [<a href="https://github.com/feniljain/iceberg-rust/blob/1b74b74a05c6d0a504189c9b303dbd094f321bc1/crates/catalog/hms/src/catalog.rs#L507-L578">GitHub</a>]
+                    [<a href="https://github.com/feniljain/iceberg-rust/blob/d51f43ce83f90f93ab6e088f79b9efc5f1b7f053/crates/catalog/glue/src/catalog.rs#L629-L701">GitHub</a>]
                 </li>
                 <li>
                     Fixed incorrect key_metadata defaults issue
-                    [<a href="https://github.com/apache/iceberg-rust/pull/800">Github</a>]
+                    [<a href="https://github.com/apache/iceberg-rust/pull/800">GitHub</a>]
                 </li>
                 <li>
                     Implemented AWS Authentication methods for different catalogs
-                    [<a href="https://github.com/feniljain/iceberg-rust/commit/b3c1221c973cd8617d65113a2518fbedf7f98188">Github</a>]
+                    [<a href="https://github.com/feniljain/iceberg-rust/commit/b3c1221c973cd8617d65113a2518fbedf7f98188">GitHub</a>]
                 </li>
                 <li>
                     Wrote partition data write integration test
-                    [<a href="https://github.com/apache/iceberg-rust/pull/742">Github</a>]
+                    [<a href="https://github.com/apache/iceberg-rust/pull/742">GitHub</a>]
                 </li>
             </ul>
 
@@ -131,7 +134,7 @@
             <ul>
                 <li>Developed a complex assist: Extract To Module and worked with the community to improve and maintain it.</li>
                 <li>Contributed critical fixes to Rust Analyzer, improving refactoring, diagnostics, and code assists for thousands of Rust developers.
-                [<a href="https://github.com/rust-lang/rust-analyzer/pulls?q=is%3Apr+sort%3Aupdated-desc+author%3Afeniljain+is%3Aclosed">Github</a>]</li>
+                [<a href="https://github.com/rust-lang/rust-analyzer/pulls?q=is%3Apr+sort%3Aupdated-desc+author%3Afeniljain+is%3Aclosed">GitHub</a>]</li>
             </ul>
     </div>
 </body>
