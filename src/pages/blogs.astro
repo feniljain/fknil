@@ -6,12 +6,7 @@ import { getCollection } from 'astro:content';
 
 const allBlogsNotDraft = await getCollection('blogs', ({ data }) => !data.draft);
 
-const techBlogs = allBlogsNotDraft.filter((blog) => blog.data.tech);
-const nonTechBlogs = allBlogsNotDraft.filter((blog) => !blog.data.tech);
-
-const sortedTechBlogs = techBlogs.sort((a, b) => b.data.publishedOn.getTime() - a.data.publishedOn.getTime());
-
-const sortedNonTechBlogs = nonTechBlogs.sort((a, b) => b.data.publishedOn.getTime() - a.data.publishedOn.getTime());
+const sortedAllBlogs = allBlogsNotDraft.sort((a, b) => b.data.publishedOn.getTime() - a.data.publishedOn.getTime());
 
 ---
 
@@ -25,20 +20,10 @@ const sortedNonTechBlogs = nonTechBlogs.sort((a, b) => b.data.publishedOn.getTim
         </div>
         <div class="blog-list-body">
             <div class="blog-list">
-                <h2>Tech Blogs</h2>
                 <ul>
-                    {sortedTechBlogs.map(blog => (
-                    <li><a href={`/blog/${blog.data.slug}`}>{blog.data.title}</a></li>
+                    {sortedAllBlogs.map(blog => (
+                    <li><a href={`/blog/${blog.data.slug}`}>{blog.data.title} ({blog.data.publishedOn.toISOString().replace(/T.*/,'').split('-').reverse().join('-')})</a></li>
                     ))}
-                </ul>
-            </div>
-            <div class="blog-list-vertical-separator"></div>
-            <div class="blog-list">
-                <h2>Non Tech Blogs</h2>
-                <ul>
-                {sortedNonTechBlogs.map(blog => (
-                    <li><a href={`/blog/${blog.data.slug}`}>{blog.data.title}</a></li>
-                ))}
                 </ul>
             </div>
         </div>
@@ -57,8 +42,6 @@ const sortedNonTechBlogs = nonTechBlogs.sort((a, b) => b.data.publishedOn.getTim
     }
 
     .blog-list-page {
-        /* padding: 0 5% 0 5%; */
-
         width: 100%;
     }
 
@@ -83,45 +66,14 @@ const sortedNonTechBlogs = nonTechBlogs.sort((a, b) => b.data.publishedOn.getTim
     }
 
     .blog-list-body {
-        box-sizing: border-box;
         display: flex;
+        justify-content: center;
+        align-items: center;
 
-        width: 100%;
-
-        justify-content: space-evenly;
-        /* align-items: stretch; */
+        box-sizing: border-box;
     }
 
     .blog-list {
         box-sizing: border-box;
-
-        /* padding: 0 10% 0 10%; */
-    }
-
-    .blog-list h2 {
-        text-align: center;
-    }
-
-    .blog-list ul {
-        text-align: start;
-    }
-
-    .blog-list-vertical-separator {
-        width: 0.3%;
-        background-color: white;
-        height: 40vh;
-        align-self: center;
-    }
-
-    /* Mobile-only styles */
-    @media (max-width: 480px) {
-        .blog-list-body {
-            flex-direction: column;
-        }
-
-        .blog-list-vertical-separator {
-            width: 0;
-            height: 0;
-        }
     }
 </style>
