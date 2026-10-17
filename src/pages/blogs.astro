@@ -16,25 +16,32 @@ const sortedNonTechBlogs = nonTechBlogs.sort((a, b) => b.data.publishedOn.getTim
 ---
 
 <BasePageLayout>
-    <div class="blog-list-body">
-        <div>
+    <div class="blog-list-page">
+        <div class="rss-feed-parent">
             <a href="/rss.xml" target="_blank">
                 RSS Feed:
                  <RssLogo  class="rss-logo"/>
             </a>
         </div>
-        <h2>Tech Blogs</h2>
-        <ul>
-        {sortedTechBlogs.map(blog => (
-            <li><a href={`/blog/${blog.data.slug}`}>{blog.data.slug}</a></li>
-        ))}
-        </ul>
-        <h2>Non Tech Blogs</h2>
-        <ul>
-        {sortedNonTechBlogs.map(blog => (
-            <li><a href={`/blog/${blog.data.slug}`}>{blog.data.slug}</a></li>
-        ))}
-        </ul>
+        <div class="blog-list-body">
+            <div class="blog-list">
+                <h2>Tech Blogs</h2>
+                <ul>
+                    {sortedTechBlogs.map(blog => (
+                    <li><a href={`/blog/${blog.data.slug}`}>{blog.data.title}</a></li>
+                    ))}
+                </ul>
+            </div>
+            <div class="blog-list-vertical-separator"></div>
+            <div class="blog-list">
+                <h2>Non Tech Blogs</h2>
+                <ul>
+                {sortedNonTechBlogs.map(blog => (
+                    <li><a href={`/blog/${blog.data.slug}`}>{blog.data.title}</a></li>
+                ))}
+                </ul>
+            </div>
+        </div>
     <div>
 </BasePageLayout>
 
@@ -49,9 +56,10 @@ const sortedNonTechBlogs = nonTechBlogs.sort((a, b) => b.data.publishedOn.getTim
         text-decoration: underline;
     }
 
-    .blog-list-body {
-        text-align: start;
-        padding: 5%;
+    .blog-list-page {
+        /* padding: 0 5% 0 5%; */
+
+        width: 100%;
     }
 
     .rss-logo {
@@ -64,5 +72,56 @@ const sortedNonTechBlogs = nonTechBlogs.sort((a, b) => b.data.publishedOn.getTim
 
     .rss-logo:hover {
         fill: var(--logo-backdrop);
+    }
+
+    .rss-feed-parent {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 2.1rem;
+    }
+
+    .blog-list-body {
+        box-sizing: border-box;
+        display: flex;
+
+        width: 100%;
+
+        justify-content: space-evenly;
+        /* align-items: stretch; */
+    }
+
+    .blog-list {
+        box-sizing: border-box;
+
+        /* padding: 0 10% 0 10%; */
+    }
+
+    .blog-list h2 {
+        text-align: center;
+    }
+
+    .blog-list ul {
+        text-align: start;
+    }
+
+    .blog-list-vertical-separator {
+        width: 0.3%;
+        background-color: white;
+        height: 40vh;
+        align-self: center;
+    }
+
+    /* Mobile-only styles */
+    @media (max-width: 480px) {
+        .blog-list-body {
+            flex-direction: column;
+        }
+
+        .blog-list-vertical-separator {
+            width: 0;
+            height: 0;
+        }
     }
 </style>
