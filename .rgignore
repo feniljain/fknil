@@ -1,3 +1,4 @@
-./blogs
+blogs/
+weeknotes/
 ./git/
-./src/pages/wander/
+src/pages/wander/
