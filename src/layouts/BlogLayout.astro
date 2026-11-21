@@ -7,16 +7,16 @@ const { Content } = await render(blog);
 ---
 
 <BasePageLayoutWithOnlyHeader>
-    <div class="main-body">
+    <div class="main-blog-container">
         <div class="blog-title">{blog.data.title}</div>
         <p class="blog-dates">Published on: {blog.data.publishedOn.toLocaleDateString('en-GB')}</p>
         <p class="blog-dates">Last edited on: {blog.data.lastEditedOn.toLocaleDateString('en-GB')}</p>
-        <Content />
+        <div class="markdown-body"><Content /></div>
     </div>
 </BasePageLayoutWithOnlyHeader>
 
 <style>
-    .main-body {
+    .main-blog-container {
         color: var(--text-color);
         /* not have blog content stick to vertical sidewalls */
         width: 70%;
@@ -33,19 +33,29 @@ const { Content } = await render(blog);
     }
 
     /* Follow LVHA principles */
-    .main-body :global(a),
-    .main-body :global(a:visited) {
+    .main-blog-container :global(a),
+    .main-blog-container :global(a:visited) {
         color: var(--logo-backdrop);
         text-decoration: none;
     }
 
-    .main-body :global(a:hover) {
+    .main-blog-container :global(a:hover) {
         text-decoration: underline;
+    }
+
+    .markdown-body :global(img) {
+        width: 30%;
+        height: 30%;
+        border: solid 2px red;
+    }
+
+    .markdown-body :global(iframe) {
+        border: solid 2px yellow;
     }
 
     /* Mobile-only styles */
     @media (max-width: 480px) {
-        .main-body {
+        .main-blog-container {
             width: 90%;
             margin: 2% auto 5% auto;
         }
