@@ -46,11 +46,12 @@ const { Content } = await render(blog);
     .markdown-body :global(img) {
         width: 30%;
         height: 30%;
-        border: solid 2px red;
     }
 
     .markdown-body :global(iframe) {
-        border: solid 2px yellow;
+        width: 30%;
+        /* percent doesn't work with iframe for some reason */
+        height: 30vh;
     }
 
     /* Mobile-only styles */
@@ -66,6 +67,18 @@ const { Content } = await render(blog);
 
         .blog-dates {
             font-size: 1rem;
+        }
+
+        .markdown-body :global(img) {
+            border: solid 2px red;
+            width: 80%;
+            height: 40%;
+            object-fit: contain;
+        }
+
+        .markdown-body :global(iframe) {
+            width: 80%;
+            height: 50vh;
         }
     }
 </style>
