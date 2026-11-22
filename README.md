@@ -2,7 +2,7 @@
 
 ## Start point
 
-Actual start point of everything is BasePageLayoutWithOnlyHeader
+Actual start point of everything is BaseLayout
 
 ## Commands
 

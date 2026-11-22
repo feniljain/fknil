@@ -1,38 +1,53 @@
 ---
-import BasePageLayout from '@layouts/BasePageLayout.astro';
-import RssLogo from '@assets/svgs/rss.svg';
+import BaseLayout from "@layouts/BaseLayout.astro";
+import RssLogo from "@assets/svgs/rss.svg";
 
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 
-const allBlogsNotDraft = await getCollection('blogs', ({ data }) => !data.draft);
+const allBlogsNotDraft = await getCollection(
+    "blogs",
+    ({ data }) => !data.draft,
+);
 
-const sortedAllBlogs = allBlogsNotDraft.sort((a, b) => b.data.publishedOn.getTime() - a.data.publishedOn.getTime());
-
+const sortedAllBlogs = allBlogsNotDraft.sort(
+    (a, b) => b.data.publishedOn.getTime() - a.data.publishedOn.getTime(),
+);
 ---
 
-<BasePageLayout>
-    <div class="blog-list-page">
-        <div class="rss-feed-parent">
-            <a href="/rss.xml" target="_blank">
-                RSS Feed:
-                 <RssLogo  class="rss-logo"/>
+<BaseLayout>
+    <div class="blog-list-container">
+        <div class="blog-list">
+            <a  href="/rss.xml" target="_blank">
+                <h1 class="rss">
+                    RSS Feed
+                    <RssLogo width={30} aria-label="RSS icon" />
+                </h1>
             </a>
+
+            <ul>
+                {sortedAllBlogs.map((blog) => (
+                    <li>
+                        <a href={`/blog/${blog.data.slug}`}>
+                            {blog.data.title} (
+                            {blog.data.publishedOn
+                                .toISOString()
+                                .replace(/T.*/, "")
+                                .split("-")
+                                .reverse()
+                                .join("-")}
+                            )
+                        </a>
+                    </li>
+                ))}
+            </ul>
         </div>
-        <div class="blog-list-body">
-            <div class="blog-list">
-                <ul>
-                    {sortedAllBlogs.map(blog => (
-                    <li><a href={`/blog/${blog.data.slug}`}>{blog.data.title} ({blog.data.publishedOn.toISOString().replace(/T.*/,'').split('-').reverse().join('-')})</a></li>
-                    ))}
-                </ul>
-            </div>
-        </div>
-    <div>
-</BasePageLayout>
+    </div>
+</BaseLayout>
 
 <style>
     /* Follow LVHA principles */
-    a, a:visited {
+    a,
+    a:visited {
         color: var(--logo-backdrop);
         text-decoration: none;
     }
@@ -41,39 +56,25 @@ const sortedAllBlogs = allBlogsNotDraft.sort((a, b) => b.data.publishedOn.getTim
         text-decoration: underline;
     }
 
-    .blog-list-page {
-        width: 100%;
+    .blog-list-container {
+        max-width: 65ch;
+        padding-inline: 1rem;
+        margin: 1em auto;
     }
 
-    .rss-logo {
-        width: 2.1rem;
-        height: 2.1rem;
-        fill: white;
-
-        margin: 0 0 0 5px;
+    .rss {
+        font-size: var(--step-4);
+        display: flex;
+        align-items: baseline;
+        gap: 0.5rem;
+        fill: var(--text);
     }
 
-    .rss-logo:hover {
+    .rss:hover {
         fill: var(--logo-backdrop);
     }
 
-    .rss-feed-parent {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        font-size: 2.1rem;
-    }
-
-    .blog-list-body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        box-sizing: border-box;
-    }
-
-    .blog-list {
-        box-sizing: border-box;
+    ul {
+        font-size: var(--step-1)
     }
 </style>

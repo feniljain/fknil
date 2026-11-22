@@ -1,57 +1,66 @@
 ---
-import BasePageLayout from '@layouts/BasePageLayout.astro';
-import GithubLogo from '@assets/svgs/github.svg';
-import LinkedinLogo from '@assets/svgs/linkedin.svg';
-import TwitterLogo from '@assets/svgs/twitter.svg';
-import EmailLogo from '@assets/svgs/email.svg';
+import BaseLayout from "@layouts/BaseLayout.astro";
+import GithubLogo from "@assets/svgs/github.svg";
+import LinkedinLogo from "@assets/svgs/linkedin.svg";
+import TwitterLogo from "@assets/svgs/twitter.svg";
+import EmailLogo from "@assets/svgs/email.svg";
 ---
 
-<BasePageLayout>
+<BaseLayout>
     <div class="name">Fenil Jain</div>
-        <div class="tagline">I make black boxes for programmers</div>
-            <div class="socials">
-                <div class="social">
-                    <a href="https://github.com/feniljain" aria-label="Github" target="_blank">
-                        <GithubLogo />
-                    </a>
-                </div>
-                <div class="social">
-                    <a href="https://linkedin.com/in/fenil-k-jain" aria-label="Linkedin" target="_blank">
-                        <LinkedinLogo />
-                    </a>
-                </div>
-                <div class="social">
-                    <a href="mailto:fkjainco@gmail.com" aria-label="Email" target="_blank">
-                        <EmailLogo />
-                    </a>
-                </div>
-            </div>
-        </div>
+    <div class="tagline">I make black boxes for programmers</div>
+    <div class="socials">
+        <a
+            class="social"
+            href="https://github.com/feniljain"
+            aria-label="Github"
+            target="_blank"
+        >
+            <GithubLogo />
+        </a>
+
+        <a
+            class="social"
+            href="https://linkedin.com/in/fenil-k-jain"
+            aria-label="Linkedin"
+            target="_blank"
+        >
+            <LinkedinLogo />
+        </a>
+
+        <a
+            class="social"
+            href="mailto:fkjainco@gmail.com"
+            aria-label="Email"
+            target="_blank"
+        >
+            <EmailLogo />
+        </a>
     </div>
-</BasePageLayout>
+</BaseLayout>
 
 <style>
     .name {
-        font-size: 3.5rem;
-        font-weight: bold;
+        font-size: var(--step-5);
     }
 
     .tagline {
         font-size: 1.6rem;
         text-align: center;
+        font-style: italic;
     }
 
     .socials {
         display: flex;
         align-items: center;
         justify-content: center;
-
-        width: 10%;
+        gap: 1rem;
+        fill: var(--text);
     }
 
     /* Follow LVHA rule for anchor tags */
     .social:visited {
-        fill: white;
+        fill: var(--text);
     }
 
     .social:hover {
@@ -61,7 +70,7 @@ import EmailLogo from '@assets/svgs/email.svg';
     .social {
         width: 2.5rem;
         height: 2.5rem;
-        fill: white;
+        fill: var(--text);
 
         margin: 10% 5% 0 5%;
     }
