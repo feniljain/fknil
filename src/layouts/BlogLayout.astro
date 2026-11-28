@@ -1,82 +1,53 @@
 ---
-import BasePageLayoutWithOnlyHeader from '@layouts/BasePageLayoutWithOnlyHeader.astro';
-import { render } from 'astro:content';
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { render } from "astro:content";
 
 const { blog } = Astro.props;
 const { Content } = await render(blog);
 ---
 
-<BasePageLayoutWithOnlyHeader>
-    <div class="main-blog-container">
-        <div class="blog-title">{blog.data.title}</div>
-        <p class="blog-dates">Published on: {blog.data.publishedOn.toLocaleDateString('en-GB')}</p>
-        <p class="blog-dates">Last edited on: {blog.data.lastEditedOn.toLocaleDateString('en-GB')}</p>
-        <div class="markdown-body"><Content /></div>
+<BaseLayout article>
+    <div class="blog-container flow">
+        <h1>{blog.data.title}</h1>
+        <div class="blog-dates" >
+            <p> Published on {blog.data.publishedOn.toLocaleDateString("en-GB")}</p>
+            <p> Last edited on {blog.data.lastEditedOn.toLocaleDateString("en-GB")}</p>
+        </div>
+        <div class="markdown-body flow">
+            <Content />
+        </div>
     </div>
-</BasePageLayoutWithOnlyHeader>
+</BaseLayout>
 
 <style>
-    .main-blog-container {
-        color: var(--text-color);
+    .blog-container {
+        color: var(--text);
         /* not have blog content stick to vertical sidewalls */
-        width: 70%;
-        margin: 1% auto 2% auto;
+        max-width: 65ch;
+        padding-inline: 1rem;
+        margin: 0 auto 3em auto;
     }
 
-    .blog-title {
+    h1 {
+        margin-top: 0.5em;
         text-align: center;
-        font-size: 3rem;
     }
 
     .blog-dates {
-        font-size: 1.3rem;
+        font-size: var(--step--1);
     }
 
     /* Follow LVHA principles */
-    .main-blog-container :global(a),
-    .main-blog-container :global(a:visited) {
+    .blog-container :global(a) {
         color: var(--logo-backdrop);
         text-decoration: none;
-    }
 
-    .main-blog-container :global(a:hover) {
-        text-decoration: underline;
-    }
-
-    .markdown-body :global(img) {
-        width: 30%;
-        height: 30%;
-    }
-
-    .markdown-body :global(iframe) {
-        width: 30%;
-        /* percent doesn't work with iframe for some reason */
-        height: 30vh;
-    }
-
-    /* Mobile-only styles */
-    @media (max-width: 480px) {
-        .main-blog-container {
-            width: 90%;
-            margin: 2% auto 5% auto;
+        &:visited {
+            color: var(--logo-backdrop);
         }
 
-        .blog-title {
-            font-size: 2rem;
-        }
-
-        .blog-dates {
-            font-size: 1rem;
-        }
-
-        .markdown-body :global(img) {
-            width: 80%;
-            height: 40%;
-        }
-
-        .markdown-body :global(iframe) {
-            width: 80%;
-            height: 50vh;
+        &:hover {
+            text-decoration: underline;
         }
     }
 </style>
